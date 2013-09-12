@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="3.0"
+	client="site"
+	method="upgrade">
+	<name>mod_sequence_slider</name>
+	<author>Template Monster</author>
+	<creationDate>August 2012</creationDate>
+	<copyright>Copyright (c) 2012-20013 by TemplateMonster - www.templatemonster.com </copyright>
+	<license>Licensed under the GNU/GPLv2:  http://www.opensource.org/licenses/mit-license.php</license> 
+	<authorEmail></authorEmail>
+	<authorUrl>www.templatemonster.com</authorUrl>
+	<version>1.0.0</version>
+	<description>MOD_SEQUENCE_SLIDER_XML_DESCRIPTION</description>
+	<files>
+		<filename module="mod_sequence_slider">mod_sequence_slider.php</filename>
+		<folder>tmpl</folder>
+		<folder>js</folder>
+		<folder>css</folder>
+		<folder>images</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_sequence_slider.xml</filename>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.mod_sequence_slider.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.mod_sequence_slider.sys.ini</language>
+	</languages>	
+	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_ARTICLES_NEWSFLASH" />
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="catid"
+					type="category"
+					extension="com_content"
+					multiple="true"
+					default=""
+					size="10"
+					label="JCATEGORY"
+					description="MOD_SEQUENCE_SLIDER_FIELD_CATEGORY_DESC" >
+					<option value="">JOPTION_ALL_CATEGORIES</option>
+				</field>
+
+				<field
+					name="image"
+					type="radio"
+					class="btn-group"
+					default="0"
+					label="MOD_SEQUENCE_SLIDER_FIELD_IMAGES_LABEL"
+					description="MOD_SEQUENCE_SLIDER_FIELD_IMAGES_DESC">
+					<option
+						value="1">JYES</option>
+					<option
+						value="0">JNO</option>
+				</field>
+
+				<field
+					name="item_title"
+					type="radio"
+					class="btn-group"
+					default="0"
+					label="MOD_SEQUENCE_SLIDER_FIELD_TITLE_LABEL"
+					description="MOD_SEQUENCE_SLIDER_FIELD_TITLE_DESC">
+					<option
+						value="1">JYES</option>
+					<option
+						value="0">JNO</option>
+				</field>
+
+				<field
+					name="link_titles"
+					type="list"
+					label="MOD_SEQUENCE_SLIDER_FIELD_LINKTITLE_LABEL"
+					description="MOD_SEQUENCE_SLIDER_FIELD_LINKTITLE_DESC">
+					<option
+						value="">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">JNO</option>
+					<option
+						value="1">JYES</option>
+				</field>
+
+				<field
+					name="item_heading"
+					type="list"
+					default="h4"
+					label="MOD_SEQUENCE_SLIDER_TITLE_HEADING"
+					description="MOD_SEQUENCE_SLIDER_TITLE_HEADING_DESCRIPTION">
+					<option
+						value="h1">JH1</option>
+					<option
+						value="h2">JH2</option>
+					<option
+						value="h3">JH3</option>
+					<option
+						value="h4">JH4</option>
+					<option
+						value="h5">JH5</option>
+					<option
+						value="h6">JH6</option>
+				</field>
+				
+				<field
+					name="published"
+					type="radio"
+					class="btn-group"
+					default="0"
+					label="MOD_SEQUENCE_SLIDER_FIELD_PUBLISHED_LABEL"
+					description="MOD_SEQUENCE_SLIDER_FIELD_PUBLISHED_DESC">
+					<option
+						value="1">JYES</option>
+					<option
+						value="0">JNO</option>
+				</field>
+
+				<field
+					name="readmore"
+					type="radio"
+					class="btn-group"
+					default="0"
+					label="MOD_SEQUENCE_SLIDER_FIELD_READMORE_LABEL"
+					description="MOD_SEQUENCE_SLIDER_FIELD_READMORE_DESC">
+					<option
+						value="0">JHIDE</option>
+					<option
+						value="1">JSHOW</option>
+				</field>
+
+				<field
+					name="count"
+					type="text"
+					default="5"
+					label="MOD_SEQUENCE_SLIDER_FIELD_ITEMS_LABEL"
+					description="MOD_SEQUENCE_SLIDER_FIELD_ITEMS_DESC" />
+
+				<field
+					name="ordering"
+					type="list"
+					default="a.publish_up"
+					label="MOD_SEQUENCE_SLIDER_FIELD_ORDERING_LABEL"
+					description="MOD_SEQUENCE_SLIDER_FIELD_ORDERING_DESC">
+					<option
+						value="a.publish_up">MOD_SEQUENCE_SLIDER_FIELD_ORDERING_PUBLISHED_DATE</option>
+					<option
+						value="a.created">MOD_SEQUENCE_SLIDER_FIELD_ORDERING_CREATED_DATE</option>
+					<option
+						value="a.ordering">MOD_SEQUENCE_SLIDER_FIELD_ORDERING_ORDERING</option>
+					<option
+						value="rand()">MOD_SEQUENCE_SLIDER_FIELD_ORDERING_RANDOM</option>
+				</field>
+
+				<field type="textarea" name="item_url" label="MOD_SEQUENCE_SLIDER_FIELD_ITEM_URL" description="MOD_SEQUENCE_SLIDER_FIELD_ITEM_URL_DESC" cols="40" rows="4"></field>
+
+				<field
+					name="target"
+					type="list"
+					default="self"
+					label="MOD_SEQUENCE_SLIDER_FIELD_TARGET_LABEL"
+					description="MOD_SEQUENCE_SLIDER_FIELD_TARGET_DESC">
+					<option	value="blank">blank</option>
+					<option	value="new">new</option>
+					<option	value="parent">parent</option>
+					<option	value="self">self</option>
+					<option	value="top">top</option>
+				</field>
+
+			</fieldset>
+
+			<fieldset
+				name="advanced">
+
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option
+						value="itemid"></option>
+				</field>
+
+			</fieldset>
+
+			<fieldset	name="SLIDESHOW">
+
+				<field
+					name="theme"
+					type="list"
+					default="0"
+					label="MOD_SEQUENCE_SLIDER_THEME"
+					description="MOD_SEQUENCE_SLIDER_THEME_DESC">
+					<option value="0">
+						MOD_SEQUENCE_SLIDER_DEFAULT
+					</option>
+					<option value="1">
+						MOD_SEQUENCE_SLIDER_CUSTOM
+					</option>
+				</field>
+				
+				<field
+					name="script"
+					type="list"
+					default="0"
+					label="MOD_SEQUENCE_SLIDER_SCRIPT"
+					description="MOD_SEQUENCE_SLIDER_SCRIPT_DESC">
+					<option value="0">
+						MOD_SEQUENCE_SLIDER_MINIFIED
+					</option>
+					<option value="1">
+						MOD_SEQUENCE_SLIDER_DEFAULT
+					</option>
+					<option value="2">
+						MOD_SEQUENCE_SLIDER_CUSTOM
+					</option>
+				</field>
+
+
+				<field type="spacer"/>
+				<field type="spacer" label="MOD_SEQUENCE_SLIDER_GENERAL" description=""/>
+
+					<field name="autoPlay" type="radio" class="btn-group" default="true" label="MOD_SEQUENCE_SLIDER_SLIDESHOW_AUTOPLAY" description="MOD_SEQUENCE_SLIDER_SLIDESHOW_AUTOPLAY_DESC">
+						<option value="true">true</option>
+						<option value="false">false</option>
+					</field>
+
+					<field name="height" type="text" default="37.94326241134752%" label="MOD_SEQUENCE_SLIDER_HEIGHT" description="MOD_SEQUENCE_SLIDER_HEIGHT_DESC"/>
+
+					<field name="imageLink" type="radio" class="btn-group" default="false" label="MOD_SEQUENCE_SLIDER_IMAGES_AS_LINKS" description="MOD_SEQUENCE_SLIDER_IMAGES_AS_LINKS_DESC">
+						<option value="false">false</option>
+						<option value="customLinks">custom links</option>
+						<option value="itemsLinks">items links</option>
+					</field>
+
+					<field name="loader" type="radio" class="btn-group" default="false" label="MOD_SEQUENCE_SLIDER_LOADER" description="MOD_SEQUENCE_SLIDER_LOADER_DESC">
+						<option value="true">true</option>
+						<option value="false">false</option>
+					</field>
+
+					<field name="autoPlayDelay" type="text" default="7000" label="MOD_SEQUENCE_SLIDER_TIME" description="MOD_SEQUENCE_SLIDER_TIME_DESC"/>
+
+					<!-- <field name="startingFrameID" type="text" default="1" label="MOD_SEQUENCE_SLIDER_STARTING_FRAME_ID" description="MOD_SEQUENCE_SLIDER_STARTING_FRAME_ID_DESC"/> -->
+
+
+				<field type="spacer"/>
+				<field name="" type="spacer" label="MOD_SEQUENCE_SLIDER_NAVIGATION_SP" description=""/>
+
+					<field name="hover" type="radio" class="btn-group" default="false" label="MOD_SEQUENCE_SLIDER_HOVER" description="MOD_SEQUENCE_SLIDER_HOVER_DESC">
+						<option value="true">true</option>
+						<option value="false">false</option>
+					</field>
+	
+					<field name="navigation" type="radio" class="btn-group" default="true" label="MOD_SEQUENCE_SLIDER_NAVIGATION" description="MOD_SEQUENCE_SLIDER_NAVIGATION_DESC">
+						<option value="true">true</option>
+						<option value="false">false</option>
+					</field>
+
+					<field name="pagination" type="radio" class="btn-group" default="true" label="MOD_SEQUENCE_SLIDER_PAGINATION" description="MOD_SEQUENCE_SLIDER_PAGINATION_DESC">
+						<option value="true">true</option>
+						<option value="false">false</option>
+					</field>					
+
+					<field name="playPause" type="radio" class="btn-group" default="false" label="MOD_SEQUENCE_SLIDER_PLAY_PAUSE" description="MOD_SEQUENCE_SLIDER_PLAY_PAUSE_DESC">
+						<option value="true">true</option>
+						<option value="false">false</option>
+					</field>
+
+					<field name="thumbnails" type="radio" class="btn-group" default="false" label="MOD_SEQUENCE_SLIDER_THUMBNAILS" description="MOD_SEQUENCE_SLIDER_THUMBNAILS_DESC">
+						<option value="true">true</option>
+						<option value="false">false</option>
+					</field>
+
+
+				<field type="spacer"/>
+				<field name="" type="spacer" label="MOD_SEQUENCE_SLIDER_CAPTION" description=""/>
+
+				<field name="show_caption" type="radio" class="btn-group" default="1" label="MOD_SEQUENCE_SLIDER_SHOW_CAPTION" description="MOD_SEQUENCE_SLIDER_SHOW_CAPTION_DESC">
+						<option value="1">true</option>
+						<option value="0">false</option>
+					</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
