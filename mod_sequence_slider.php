@@ -15,7 +15,8 @@ defined('_JEXEC') or die;
 require_once __DIR__ . '/helper.php';
 
 $app 	  = JFactory::getApplication();	
-$document =& JFactory::getDocument();
+$doc = JFactory::getDocument();
+$document =& $doc;
 $template = $app->getTemplate();
 
 // Include Camera Slideshow styles
