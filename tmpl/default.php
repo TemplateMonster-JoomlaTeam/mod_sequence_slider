@@ -32,7 +32,7 @@ defined('_JEXEC') or die;
 <?php endif; ?>
 <?php if($params->get('pagination') != "false") : ?>
 <div class="sequence-pagination-wrapper<?php if ($params->get('thumbnails') != "false"): ?> sequence-thumbnails<?php endif; ?>">
-	<ul class="sequence-pagination<?php if ($params->get('thumbnails') != "false"): ?> sequence-thumbnails<?php endif; ?>">
+	<ul class="sequence-pagination sequence-pagination-<?php echo $module->id; ?><?php if ($params->get('thumbnails') != "false"): ?> sequence-thumbnails<?php endif; ?>">
 	<?php 
 	    $i=0;	
 		foreach ($list as $item) :	?>
@@ -80,7 +80,11 @@ defined('_JEXEC') or die;
             nextButton:<?php echo $params->get('navigation'); ?>,
             prevButton:<?php echo $params->get('navigation'); ?>,
             pauseButton:<?php echo $params->get('playPause'); ?>,
-            pagination:<?php echo $params->get('pagination'); ?>,
+            <?php if($params->get('pagination') != "false") : ?>
+            pagination: '.sequence-pagination-<?php echo $module->id; ?>',
+            <?php else : ?>
+            pagination: false,
+            <?php endif; ?>
 			preloader: <?php echo $params->get('loader'); ?>,
 			pauseOnHover:<?php echo $params->get('hover'); ?>,
 			reverseAnimationsWhenNavigatingBackwards:false,
