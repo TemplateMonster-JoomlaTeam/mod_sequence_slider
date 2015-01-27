@@ -17,15 +17,23 @@ if(!empty($itemURLs)){
 	if(!empty($itemURLs[$i])) $itemUrl = $itemURLs[$i];
 	$itemUrl = preg_replace('/\s+/', '', $itemUrl);
 }
+$link = '';
+if($params->get('imageLink')=="itemsLinks"){
+	$link = $item->link;
+}
+if(($params->get('imageLink')=="customLinks") && (!empty($itemUrl))){
+	$link = $itemUrl;
+}
+$target = $params->get('target');
 ?>
 
-<?php if (isset($images->image_fulltext) and !empty($images->image_fulltext)) :
-if($params->get('imageLink')=="itemsLinks"): ?>
+<?php if (isset($images->image_fulltext) and !empty($images->image_fulltext)) : ?>
+<img class="slide-img"<?php if($params->get('imageLink')=="itemsLinks" || ($params->get('imageLink')=="customLinks") && (!empty($itemUrl))): ?> data-url="<?php echo $link; ?>" data-target="<?php echo $target; ?>"<?php endif; ?> src="<?php echo htmlspecialchars($images->image_fulltext); ?>" alt="">
+<?php if($params->get('imageLink')=="itemsLinks"): ?>
 <a href="<?php echo $item->link; ?>">
 <?php elseif(($params->get('imageLink')=="customLinks") && (!empty($itemUrl))): ?>
 	<a href="<?php echo $itemUrl; ?>">
 <?php endif; ?>
-		<img class="slide-img" src="<?php echo htmlspecialchars($images->image_fulltext); ?>" alt="">
 		<?php if($params->get('imageLink')=="itemsLinks" || ($params->get('imageLink')=="customLinks" && !empty($itemURL))): ?>
 	</a>
 <?php endif; ?>

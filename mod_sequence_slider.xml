@@ -160,10 +160,7 @@
 					label="MOD_SEQUENCE_SLIDER_FIELD_TARGET_LABEL"
 					description="MOD_SEQUENCE_SLIDER_FIELD_TARGET_DESC">
 					<option	value="blank">blank</option>
-					<option	value="new">new</option>
-					<option	value="parent">parent</option>
 					<option	value="self">self</option>
-					<option	value="top">top</option>
 				</field>
 
 			</fieldset>

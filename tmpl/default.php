@@ -100,5 +100,8 @@ defined('_JEXEC') or die;
 			}
         }
         var sequence = jQuery("#sequence<?php echo $module->id; ?>").sequence(options<?php echo $module->id; ?>).data("sequence");
+        $('.slide-img[data-url]').click(function(){
+        	window.open($(this).attr('data-url'), '_'+$(this).attr('data-target'));
+        })
     });
 </script>

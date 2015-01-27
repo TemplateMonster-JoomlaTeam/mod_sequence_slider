@@ -32,7 +32,7 @@ switch($params->get('theme')){
 // Include Camera Slideshow scripts
 switch($params->get('script')){
 	case 0:
-		$document->addScript(JURI::base() . 'modules/mod_sequence_slider/js/jquery.sequence.js');
+		$document->addScript(JURI::base() . 'modules/mod_sequence_slider/js/jquery.sequence-min.js');
 		break;
 	case 1:
 		$document->addScript(JURI::base() . 'modules/mod_sequence_slider/js/jquery.sequence.js');
